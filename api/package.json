@@ -9,8 +9,8 @@
     "lint": "eslint .",
     "start": "cross-env NODE_ENV=production node .",
     "dev": "cross-env NODE_ENV=development nodemon .",
-    "test": "node spec/index.js",
-    "posttest": "npm run lint && nsp check"
+    "test": "cross-env NODE_ENV=test forever start server/server.js && node spec/index.js",
+    "posttest": "npm run lint && forever stopall"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -27,6 +27,7 @@
     "cross-env": "^5.1.6",
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
+    "forever": "^0.15.3",
     "newman": "^3.9.4",
     "nodemon": "^1.17.5",
     "nsp": "^2.1.0"
