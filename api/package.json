@@ -7,7 +7,9 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node .",
+    "start": "cross-env NODE_ENV=production node .",
+    "dev": "cross-env NODE_ENV=development nodemon .",
+    "test": "cross-env NODE_ENV=test npm run lint",
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {
@@ -22,8 +24,10 @@
     "strong-error-handler": "^2.0.0"
   },
   "devDependencies": {
+    "cross-env": "^5.1.6",
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
+    "nodemon": "^1.17.5",
     "nsp": "^2.1.0"
   },
   "repository": {
